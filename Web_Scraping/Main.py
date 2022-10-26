@@ -10,4 +10,6 @@ cards = soup.find("a", {"class": "card"})
 #print(cards[0])
 #print(type(cards[1]))
 d1 = cards[0].find("p", {"class": "release__version"}, partial=False).text
-print (d1)
+t1 = cards[0].find("time").attrs ["datetime"]
+print(d1)
+print(t1)
