@@ -7,4 +7,7 @@ Soup(html)
 soup = Soup(html)
 soup.find('a', {'card': 'card'})
 cards = soup.find("a", {"class": "card"})
-print(cards[1])
+#print(cards[0])
+#print(type(cards[1]))
+d1 = cards[0].find("p", {"class": "release__version"}, partial=False).text
+print (d1)
