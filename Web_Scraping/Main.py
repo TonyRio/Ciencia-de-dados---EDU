@@ -26,3 +26,5 @@ def parse_card (card):
 
 df = pd.DataFrame([parse_card(x) for x in cards]).assign(timestamp=lambda t: pd.to_datetime(t['timestamp']))
 #print (timestamp)
+
+#cont
