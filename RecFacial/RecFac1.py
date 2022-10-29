@@ -34,4 +34,10 @@ grid = GridSearchCV(model, param_grid)
 
 # Calculo dos melhores hyperparametros
 grid.fit(X_train, Ytrain)
-print(grid.best_params_)
+#print(grid.best_params_)
+#print(grid.best_estimator_)
+
+### treinando maquina Preditiva
+model = grid.best_estimator_
+yfit = model.predict(X_test)
+
