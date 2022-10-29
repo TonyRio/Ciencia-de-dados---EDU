@@ -48,5 +48,25 @@ for i, axi in enumerate(ax.flat):
     axi.set(xticks=[], yticks=[])
     axi.set_ylabel(faces.target_names[yfit[i]].split()[-1],
                    color='blue' if yfit[i] == Y_test[i] else 'red')
-    print(fig.suptitle('Nomes Preditos Incorretaete em vermelho', size=14))
+    fig.suptitle('Nomes Preditos Incorretaete em vermelho', size=14);
 
+### Avaliacao da Maquina preditiva
+from sklearn.metrics import classification_report
+#print("")
+#print(classification_report(Y_test, yfit, target_names=faces.target_names))
+
+### confusion Metrics
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+
+mat = confusion_matrix(Y_test, yfit)
+sns.heatmap(mat.T, square=True, annot = True, fmt='d', cbar=False,
+            xticklabels=faces.target_names,
+            yticklabels=faces.target_names)
+print(plt.xlabel('Foto Real - True label'))
+print(plt.ylabel('predict label - Predito de maquina'))
+
+### avaliacao da Curacia da Maquina preditiva
+from sklearn.metrics import accuracy_score
+resultado=accuracy_score(Y_test, yfit)
+print (resultado)
