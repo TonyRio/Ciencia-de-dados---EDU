@@ -41,3 +41,12 @@ grid.fit(X_train, Ytrain)
 model = grid.best_estimator_
 yfit = model.predict(X_test)
 
+### Resultado do treinamento
+fig, ax = plt.subplots(4,6)
+for i, axi in enumerate(ax.flat):
+    axi.imshow(X_test[i].reshape(62,47), cmap='bone')
+    axi.set(xticks=[], yticks=[])
+    axi.set_ylabel(faces.target_names[yfit[i]].split()[-1],
+                   color='blue' if yfit[i] == Y_test[i] else 'red')
+    print(fig.suptitle('Nomes Preditos Incorretaete em vermelho', size=14))
+
